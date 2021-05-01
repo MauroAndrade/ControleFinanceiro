@@ -1,0 +1,29 @@
+<div class="dadosCategorias">
+    <table mat-table [dataSource]="categorias" *ngIf="categorias" class="mat-elevation-z8 tabela">
+        
+        <ng-container matCalumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cel *matCellDef="let categoria">{{ categoria.nome }}</td>
+        </ng-container>
+        <ng-container matCalumnDef="icone">
+            <th mat-header-cell *matHeaderCellDef>Icone</th>
+            <td mat-cel *matCellDef="let categoria"> <mat-icon> {{ categoria.icone }} </mat-icon></td>
+        </ng-container>
+        <ng-container matCalumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cel *matCellDef="let categoria"><mat-icon> {{ categoria.tipo.nome }} </mat-icon></td>
+        </ng-container>
+        <ng-container matCalumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cel *matCellDef="let categoria">
+                <button mat-mini-fab color="primary"> <mat-icon>edit</mat-icon> </button>
+                <button mat-mini-fab color="warn"> <mat-icon>delete_forever</mat-icon> </button>
+            </td>
+                
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+</div>
